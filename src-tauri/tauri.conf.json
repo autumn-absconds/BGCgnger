@@ -1,0 +1,74 @@
+{
+  "build": {
+    "beforeDevCommand": "npm run dev",
+    "beforeBuildCommand": "npm run build",
+    "devPath": "http://localhost:1420",
+    "distDir": "../dist",
+    "withGlobalTauri": false
+  },
+  "package": {
+    "productName": "BGCgnger",
+    "version": "0.0.0"
+  },
+  "tauri": {
+    "allowlist": {
+      "all": false,
+      "shell": {
+        "all": true,
+        "open": true,
+        "execute": true,
+        "sidecar": true,
+        "scope": [
+          {
+            "name": "cmd",
+            "cmd": "C:\\Windows\\System32\\cmd.exe",
+            "args": [
+              "/c",
+              {
+                "validator": ".*"
+              }
+            ]
+          }
+        ]
+      },
+      "path": {
+        "all": true
+      },
+      "fs": {
+        "all": false,
+        "createDir": true,
+        "writeFile": true,
+        "scope": [
+          "$RESOURCE/binaries/wall.bat"
+        ]
+      }
+    },
+    "bundle": {
+      "active": true,
+      "targets": "all",
+      "identifier": "bgcgnger",
+      "icon": [
+        "icons/32x32.png",
+        "icons/128x128.png",
+        "icons/128x128@2x.png",
+        "icons/icon.icns",
+        "icons/icon.ico"
+      ],
+      "resources": [
+        "binaries/wall.bat"
+      ]
+    },
+    "security": {
+      "csp": null
+    },
+    "windows": [
+      {
+        "fullscreen": false,
+        "resizable": true,
+        "title": "BGCgnger",
+        "width": 800,
+        "height": 600
+      }
+    ]
+  }
+}
